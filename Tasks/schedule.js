@@ -1,8 +1,14 @@
 'use strict';
 
-// Implement following task
-// Run `func(n)`; `n`-times with `interval` and pass `n` to `func`
-
-const schedule = async (func, n, interval) => {};
+const schedule = async (func, n, interval) => {
+  for (let index = 0; index < n; index++) {
+    await new Promise(resolve => {
+      setTimeout(() => {
+        func(index);
+        resolve();
+      }, interval * index)
+    })
+  }
+};
 
 module.exports = schedule;
