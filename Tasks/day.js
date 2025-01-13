@@ -3,14 +3,9 @@
 
 let DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-parseDay = (day) => {
-  let index;
-  for (index = 0; index < DAYS.length; index++) {
-    if (day.startsWith(DAYS[index].toLowerCase())) {
-      return index + 1;
-    }
+function parseDay (day) {
+  let index = DAYS.findIndex(d => day.startsWith(d.toLowerCase()));
+  return index + 1 || -1;
   }
-  return -1;
-};
 
 module.exports = parseDay;
